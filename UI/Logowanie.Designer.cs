@@ -102,6 +102,7 @@
             this.tb_login.Name = "tb_login";
             this.tb_login.Size = new System.Drawing.Size(284, 20);
             this.tb_login.TabIndex = 7;
+            this.tb_login.Text = "222222222";
             this.tb_login.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // tb_haslo
@@ -111,6 +112,7 @@
             this.tb_haslo.Name = "tb_haslo";
             this.tb_haslo.Size = new System.Drawing.Size(283, 20);
             this.tb_haslo.TabIndex = 6;
+            this.tb_haslo.Text = "222222222";
             this.tb_haslo.UseSystemPasswordChar = true;
             this.tb_haslo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -176,6 +178,7 @@
             // 
             this.Haslo.AutoSize = true;
             this.Haslo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Haslo.ForeColor = System.Drawing.Color.White;
             this.Haslo.Location = new System.Drawing.Point(211, 141);
             this.Haslo.Name = "Haslo";
             this.Haslo.Size = new System.Drawing.Size(62, 24);
@@ -186,11 +189,13 @@
             // 
             this.Login.AutoSize = true;
             this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Login.ForeColor = System.Drawing.Color.White;
             this.Login.Location = new System.Drawing.Point(210, 104);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(57, 24);
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // panel3
             // 

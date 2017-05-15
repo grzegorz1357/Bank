@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 
+
 namespace UI
 {
     public partial class Logowanie : Form
@@ -17,7 +18,10 @@ namespace UI
         public Logowanie()
         {
             InitializeComponent();
+         
         }
+
+       
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -36,14 +40,15 @@ namespace UI
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             bool polaczenie = true;
             string uzytkownik = tb_login.Text;
-
+           
+           
             // HASHOWANIE HASŁA PRZY POMOCY FUNKCJI SKRÓTU SHA256
             String hashcode = "";
             byte[] bytes = Encoding.UTF8.GetBytes(tb_haslo.Text);
@@ -125,6 +130,7 @@ namespace UI
 
                     if (dostep == true)
                     {
+
                         this.Hide();
                         Form1 main = new Form1();
                         main.Show();
@@ -133,14 +139,22 @@ namespace UI
                 }
                 else MessageBox.Show("Blad sieci");
             }
+
+          
         }
 
+       
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
         {
 
         }

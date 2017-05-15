@@ -5,6 +5,7 @@ namespace UI
 {
     public partial class SG : UserControl
     {
+
         private static SG _instance;
         public static SG Instance
         {
@@ -18,7 +19,10 @@ namespace UI
         public SG()
         {
             InitializeComponent();
+           
         }
+
+
 
         private void SG_Load(object sender, EventArgs e)
         {
