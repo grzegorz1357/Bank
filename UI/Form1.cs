@@ -12,12 +12,14 @@ namespace UI
 {
     public partial class Form1 : Form
     {
+        public static int id = 0;
 
         public Form1()
         {
             
             InitializeComponent();
-
+            id = UI.Logowanie.return_id();
+         
             if (!panel2.Controls.Contains(SG.Instance))
             {
                 panel2.Controls.Add(SG.Instance);
@@ -32,7 +34,10 @@ namespace UI
             }
 
         }
-
+        public static int set_id()
+        {
+            return id;
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

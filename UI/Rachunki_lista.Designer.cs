@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cb_rachunki = new System.Windows.Forms.ComboBox();
+            this.dgv_rachunek = new System.Windows.Forms.DataGridView();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OdNad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kwota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_srodki = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rachunek)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -54,36 +54,39 @@
             this.label5.Text = "Wybierz rachunek:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // comboBox1
+            // cb_rachunki
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 31);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 28);
-            this.comboBox1.TabIndex = 12;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cb_rachunki.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.cb_rachunki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_rachunki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_rachunki.FormattingEnabled = true;
+            this.cb_rachunki.Location = new System.Drawing.Point(19, 31);
+            this.cb_rachunki.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_rachunki.Name = "cb_rachunki";
+            this.cb_rachunki.Size = new System.Drawing.Size(409, 28);
+            this.cb_rachunki.TabIndex = 12;
+            this.cb_rachunki.SelectedIndexChanged += new System.EventHandler(this.cb_rachunki_SelectedIndexChanged);
+            this.cb_rachunki.SelectionChangeCommitted += new System.EventHandler(this.cb_rachunki_SelectionChangeCommitted);
             // 
-            // dataGridView1
+            // dgv_rachunek
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_rachunek.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.dgv_rachunek.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_rachunek.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Data,
             this.OdNad,
             this.Opis,
             this.Kwota});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 107);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 361);
-            this.dataGridView1.TabIndex = 14;
+            this.dgv_rachunek.Location = new System.Drawing.Point(19, 107);
+            this.dgv_rachunek.Margin = new System.Windows.Forms.Padding(2);
+            this.dgv_rachunek.Name = "dgv_rachunek";
+            this.dgv_rachunek.RowTemplate.Height = 24;
+            this.dgv_rachunek.Size = new System.Drawing.Size(585, 361);
+            this.dgv_rachunek.TabIndex = 14;
             // 
             // Data
             // 
+            this.Data.DataPropertyName = "Data";
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
             this.Data.ReadOnly = true;
@@ -91,6 +94,7 @@
             // 
             // OdNad
             // 
+            this.OdNad.DataPropertyName = "OdNad";
             this.OdNad.HeaderText = "Odbiorca/Nadawca";
             this.OdNad.Name = "OdNad";
             this.OdNad.ReadOnly = true;
@@ -98,6 +102,7 @@
             // 
             // Opis
             // 
+            this.Opis.DataPropertyName = "Opis";
             this.Opis.HeaderText = "Opis";
             this.Opis.Name = "Opis";
             this.Opis.ReadOnly = true;
@@ -105,6 +110,7 @@
             // 
             // Kwota
             // 
+            this.Kwota.DataPropertyName = "Kwota";
             this.Kwota.HeaderText = "Kwota";
             this.Kwota.Name = "Kwota";
             this.Kwota.ReadOnly = true;
@@ -121,17 +127,16 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Historia ostatnich operacji:";
             // 
-            // label2
+            // lb_srodki
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(469, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "425,10 PLN";
+            this.lb_srodki.AutoSize = true;
+            this.lb_srodki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_srodki.ForeColor = System.Drawing.Color.Aquamarine;
+            this.lb_srodki.Location = new System.Drawing.Point(469, 56);
+            this.lb_srodki.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_srodki.Name = "lb_srodki";
+            this.lb_srodki.Size = new System.Drawing.Size(0, 20);
+            this.lb_srodki.TabIndex = 17;
             // 
             // label3
             // 
@@ -145,21 +150,21 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Dostępne fundusze:";
             // 
-            // Rachunki
+            // Rachunki_lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lb_srodki);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_rachunek);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Name = "Rachunki";
+            this.Controls.Add(this.cb_rachunki);
+            this.Name = "Rachunki_lista";
             this.Size = new System.Drawing.Size(626, 479);
             this.Load += new System.EventHandler(this.Rachunki_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_rachunek)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,14 +173,14 @@
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cb_rachunki;
+        private System.Windows.Forms.DataGridView dgv_rachunek;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_srodki;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn OdNad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kwota;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
     }
 }

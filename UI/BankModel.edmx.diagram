@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="35553bec12e046378e6649c536b019a2" Name="Diagram1">
-        <EntityTypeShape EntityType="BankModel.Administratorzy" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Blokady" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Historia_miedzybankowa" Width="1.5" PointX="11.25" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Historia_status" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Historia_wewnatrzbankowa" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Klienci" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Odbiorcy_zdefiniowani" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Przelew_cykliczny" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Rachunki" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BankModel.Rachunki_rodzaj" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+      <Diagram DiagramId="5be76677887044eaa383da15caff13ee" Name="Diagram1">
+        <EntityTypeShape EntityType="BankModel.Administratorzy" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Blokady" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Historia_miedzybankowa" Width="1.5" PointX="11.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Historia_status" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Historia_wewnatrzbankowa" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Klienci" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Odbiorcy_zdefiniowani" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Przelew_cykliczny" Width="1.5" PointX="8.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Rachunki" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.Rachunki_rodzaj" Width="1.5" PointX="3.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="BankModel.FK_Blokady_Administratorzy" ManuallyRouted="false" />
         <AssociationConnector Association="BankModel.FK_Blokady_Rachunki" ManuallyRouted="false" />
         <AssociationConnector Association="BankModel.FK_Historia_miedzybankowa_Rachunki" ManuallyRouted="false" />
@@ -26,6 +27,7 @@
         <AssociationConnector Association="BankModel.FK_Rachunki_Klienci" ManuallyRouted="false" />
         <AssociationConnector Association="BankModel.FK_Przelew_cykliczny_Rachunki" ManuallyRouted="false" />
         <AssociationConnector Association="BankModel.FK_Rachunki_Rodzaj" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BankModel.database_firewall_rules" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

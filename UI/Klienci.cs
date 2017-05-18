@@ -34,6 +34,9 @@ namespace UI
         public string haslo { get; set; }
         public string nr_telefonu { get; set; }
         public string email { get; set; }
+        public Nullable<System.DateTime> data_ostatniego_logowania { get; set; }
+        public Nullable<System.DateTime> data_ostatniego_blednego_logowania { get; set; }
+        public bool login_blokada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Odbiorcy_zdefiniowani> Odbiorcy_zdefiniowani { get; set; }
