@@ -13,7 +13,12 @@ namespace UI
     public partial class Rachunki_lista : UserControl
     {
         public int ID = Form1.set_id();
+<<<<<<< HEAD
        
+=======
+
+        
+>>>>>>> origin/master
         private static Rachunki_lista _instance;
         public static Rachunki_lista Instance
         {

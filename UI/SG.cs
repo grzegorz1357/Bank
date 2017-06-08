@@ -130,6 +130,10 @@ namespace UI
                     using (var wh = new Entities1())
                     {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                         var historia = (from h in wh.Historia_wewnatrzbankowa
                                         from r in wh.Rachunki.Where(s => s.id_rachunku == h.id_rachunku_nadawca || s.id_rachunku == h.id_rachunku_odbiorca)
                                         join k in wh.Klienci on r.id_klienta equals k.id_klienta
@@ -184,6 +188,7 @@ namespace UI
         {
 
         }
+<<<<<<< HEAD
 
         private void cb_hidden_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -194,5 +199,7 @@ namespace UI
         {
 
         }
+=======
+>>>>>>> origin/master
     }
 }
