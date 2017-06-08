@@ -45,10 +45,12 @@ namespace UI
                 panel2.Controls.Add(Transakcje_Odbiorcy.Instance);
                 Transakcje_Odbiorcy.Instance.Dock = DockStyle.Fill;
                 Transakcje_Odbiorcy.Instance.BringToFront();
+                Transakcje_Odbiorcy.Instance.Visible = true; //pozwala wrocic do UC Transakcje_odbiorcy po przekazaniu danych do przelewu
             }
             else
             {
                 Transakcje_Odbiorcy.Instance.BringToFront();
+                Transakcje_Odbiorcy.Instance.Visible = true;
             }
         }
 
@@ -66,7 +68,11 @@ namespace UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
+        {
+            Przejdz_do_przelewu();
+        }
+        public void Przejdz_do_przelewu()
         {
             if (!panel2.Controls.Contains(Transakcje_Przelewy.Instance))
             {

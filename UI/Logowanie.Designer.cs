@@ -102,7 +102,7 @@
             this.tb_login.Name = "tb_login";
             this.tb_login.Size = new System.Drawing.Size(284, 20);
             this.tb_login.TabIndex = 7;
-            this.tb_login.Text = "222222222";
+            this.tb_login.Text = "555555555";
             this.tb_login.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // tb_haslo
@@ -112,7 +112,7 @@
             this.tb_haslo.Name = "tb_haslo";
             this.tb_haslo.Size = new System.Drawing.Size(283, 20);
             this.tb_haslo.TabIndex = 6;
-            this.tb_haslo.Text = "222222222";
+            this.tb_haslo.Text = "555555555";
             this.tb_haslo.UseSystemPasswordChar = true;
             this.tb_haslo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 

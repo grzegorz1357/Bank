@@ -21,6 +21,7 @@ namespace UI
         public int id_rachunku { get; set; }
         public string nr_rachunku_obcego { get; set; }
         public int status { get; set; }
+        public string tytul { get; set; }
     
         public virtual Rachunki Rachunki { get; set; }
         public virtual Historia_status Historia_status { get; set; }
