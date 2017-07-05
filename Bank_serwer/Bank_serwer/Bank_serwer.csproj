@@ -53,9 +53,12 @@
     <Compile Include="Administratorzy.cs">
       <DependentUpon>BazaEF.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Banki_numery.cs">
       <DependentUpon>BazaEF.tt</DependentUpon>
     </Compile>
+=======
+>>>>>>> origin/master
     <Compile Include="BazaEF.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,9 +100,12 @@
     <Compile Include="Rachunki.cs">
       <DependentUpon>BazaEF.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Rachunki_obce.cs">
       <DependentUpon>BazaEF.tt</DependentUpon>
     </Compile>
+=======
+>>>>>>> origin/master
     <Compile Include="Rachunki_rodzaj.cs">
       <DependentUpon>BazaEF.tt</DependentUpon>
     </Compile>
@@ -108,9 +114,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+=======
+    <None Include="App.config" />
+>>>>>>> origin/master
     <EntityDeploy Include="BazaEF.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BazaEF.Designer.cs</LastGenOutput>
@@ -126,7 +136,10 @@
       <LastGenOutput>BazaEF.Context.cs</LastGenOutput>
       <DependentUpon>BazaEF.edmx</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="BazaEF.edmx.sql" />
+=======
+>>>>>>> origin/master
     <Content Include="BazaEF.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BazaEF.edmx</DependentUpon>

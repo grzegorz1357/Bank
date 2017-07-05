@@ -81,6 +81,7 @@ namespace UI
         } 
         //WCZYTYWANIE DANYCH O POSZCZEGOlNYM ODBIORCY
         private void cb_odbiorcy_SelectedIndexChanged(object sender, EventArgs e)
+<<<<<<< HEAD
         {
             if (data.Rows.Count != 0)
             {
@@ -130,10 +131,47 @@ namespace UI
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
+=======
+        {
+            if (data.Rows.Count != 0)
+            {
+                for (int i = 0; i < data.Rows.Count; i++)
+                {
+                    if (cb_odbiorcy.SelectedValue.ToString() == data.Rows[i][2].ToString())
+                    {
+                        lb_Nazwa.Text = data.Rows[i][2].ToString();
+                        lb_Adres.Text = data.Rows[i][3].ToString();
+                        lb_NRachunku.Text = data.Rows[i][4].ToString();
+
+
+                    }
+>>>>>>> origin/master
                 }
             }
         }
+        private void bt_wyslij_Click(object sender, EventArgs e)
+        {
+            Entities1 _repository = new Entities1();
+            Odbiorcy_zdefiniowani add = new Odbiorcy_zdefiniowani();
 
+            for (int i = 0; i < data.Rows.Count; i++)
+                if (cb_odbiorcy.SelectedValue.ToString() == data.Rows[i][2].ToString())
+                {
+                    int id = Int32.Parse(data.Rows[i][1].ToString());
+                    add.id_wlasciciela = id;
+                }
+            add.nr_rachunku = tb_NumerRachunku.Text.ToString();
+            add.nazwa=tb_Nazwa.Text.ToString();
+            add.adres=tb_Adres.Text.ToString();
+
+            try
+            {
+                _repository.Odbiorcy_zdefiniowani.Add(add);
+                _repository.SaveChanges();
+                MessageBox.Show("Pomyślnie dodano kontakt");
+                ukryj_dodaj();
+
+<<<<<<< HEAD
         private void bt_DodajOdbiorce_Click(object sender, EventArgs e)
         {
             wyswietl_dodaj();
@@ -213,6 +251,73 @@ namespace UI
 
 
         }
+=======
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void bt_DodajOdbiorce_Click(object sender, EventArgs e)
+        {
+            wyswietl_dodaj();
+        }
+        private void bt_Anuluj_Click(object sender, EventArgs e)
+        {
+            ukryj_dodaj();
+        }
+        private void bt_przelew_Click(object sender, EventArgs e)
+        {
+            Transakcje_Przelewy.TurnOFF();
+            Transakcje_Przelewy.TurnON();
+            Transakcje_Przelewy.wgrajOdbiorce(lb_Nazwa.Text.ToString());
+            Transakcje_Przelewy.wgrajAdres(lb_Adres.Text.ToString());
+            Transakcje_Przelewy.wgrajRachunek(lb_NRachunku.Text.ToString());
+            Transakcje.Instance.Przejdz_do_przelewu();
+            this.Visible = false;
+
+        }
+     
+        
+        private void wyswietl_dodaj()
+        {
+            bt_DodajOdbiorce.Visible = false;
+            bt_wyslij.Visible = true;
+            bt_Anuluj.Visible = true;
+            bt_przelew.Visible = false;
+
+            tb_Nazwa.Visible = true;
+            tb_Adres.Visible = true;
+            tb_NumerRachunku.Visible = true;
+
+            lb_Nazwa.Visible = false;
+            lb_Adres.Visible = false;
+            lb_NRachunku.Visible = false;
+
+        }
+        private void ukryj_dodaj()
+        {
+            bt_Anuluj.Visible = false;
+            bt_DodajOdbiorce.Visible = true;
+            bt_wyslij.Visible = false;
+            bt_przelew.Visible = true;
+
+            tb_Nazwa.Visible = false;
+            tb_Adres.Visible = false;
+            tb_NumerRachunku.Visible = false;
+
+            tb_Nazwa.Clear();
+            tb_Adres.Clear();
+            tb_NumerRachunku.Clear();
+
+            lb_Nazwa.Visible = true;
+            lb_Adres.Visible = true;
+            lb_NRachunku.Visible = true;
+
+
+        }
+>>>>>>> origin/master
 
        
     }

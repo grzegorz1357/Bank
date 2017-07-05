@@ -37,7 +37,10 @@ namespace UI
         public virtual DbSet<Rachunki_rodzaj> Rachunki_rodzaj { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<Rachunki_obce> Rachunki_obce { get; set; }
         public virtual DbSet<Banki_numery> Banki_numery { get; set; }
+=======
+>>>>>>> origin/master
     }
 }

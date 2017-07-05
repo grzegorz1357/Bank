@@ -9,7 +9,11 @@
         <EntityTypeShape EntityType="BankModel.Blokady" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BankModel.Historia_miedzybankowa" Width="1.5" PointX="11.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BankModel.Historia_status" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="BankModel.Historia_wewnatrzbankowa" Width="2.625" PointX="8.875" PointY="4.25" IsExpanded="true" />
+=======
+        <EntityTypeShape EntityType="BankModel.Historia_wewnatrzbankowa" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+>>>>>>> origin/master
         <EntityTypeShape EntityType="BankModel.Klienci" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BankModel.Odbiorcy_zdefiniowani" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BankModel.Przelew_cykliczny" Width="1.5" PointX="8.25" PointY="18.875" IsExpanded="true" />
@@ -28,8 +32,11 @@
         <AssociationConnector Association="BankModel.FK_Przelew_cykliczny_Rachunki" ManuallyRouted="false" />
         <AssociationConnector Association="BankModel.FK_Rachunki_Rodzaj" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BankModel.database_firewall_rules" Width="1.5" PointX="3.375" PointY="0.75" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="BankModel.Rachunki_obce" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="BankModel.Banki_numery" Width="1.5" PointX="5.375" PointY="0.75" />
+=======
+>>>>>>> origin/master
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

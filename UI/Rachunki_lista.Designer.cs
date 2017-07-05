@@ -31,15 +31,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cb_rachunki = new System.Windows.Forms.ComboBox();
             this.dgv_rachunek = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.label1 = new System.Windows.Forms.Label();
             this.lb_srodki = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+=======
+>>>>>>> origin/master
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nadawca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Odbiorca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kwota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_srodki = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+>>>>>>> origin/master
             ((System.ComponentModel.ISupportInitialize)(this.dgv_rachunek)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,15 +88,53 @@
             this.Nadawca,
             this.Odbiorca,
             this.Opis,
+<<<<<<< HEAD
             this.Kwota,
             this.Status});
+=======
+            this.Kwota});
+>>>>>>> origin/master
             this.dgv_rachunek.Location = new System.Drawing.Point(19, 107);
             this.dgv_rachunek.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_rachunek.Name = "dgv_rachunek";
             this.dgv_rachunek.RowTemplate.Height = 24;
             this.dgv_rachunek.Size = new System.Drawing.Size(585, 361);
             this.dgv_rachunek.TabIndex = 14;
+<<<<<<< HEAD
             this.dgv_rachunek.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgv_rachunek_RowsAdded);
+=======
+            // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 92;
+            // 
+            // OdNad
+            // 
+            this.OdNad.DataPropertyName = "OdNad";
+            this.OdNad.HeaderText = "Odbiorca/Nadawca";
+            this.OdNad.Name = "OdNad";
+            this.OdNad.ReadOnly = true;
+            this.OdNad.Width = 200;
+            // 
+            // Opis
+            // 
+            this.Opis.DataPropertyName = "Opis";
+            this.Opis.HeaderText = "Opis";
+            this.Opis.Name = "Opis";
+            this.Opis.ReadOnly = true;
+            this.Opis.Width = 150;
+            // 
+            // Kwota
+            // 
+            this.Kwota.DataPropertyName = "Kwota";
+            this.Kwota.HeaderText = "Kwota";
+            this.Kwota.Name = "Kwota";
+            this.Kwota.ReadOnly = true;
+>>>>>>> origin/master
             // 
             // label1
             // 
@@ -124,6 +171,7 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Dostępne fundusze:";
             // 
+<<<<<<< HEAD
             // Data
             // 
             this.Data.DataPropertyName = "Data";
@@ -169,6 +217,8 @@
             this.Status.Name = "Status";
             this.Status.Width = 90;
             // 
+=======
+>>>>>>> origin/master
             // Rachunki_lista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +252,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Odbiorca;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kwota;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+=======
+>>>>>>> origin/master
     }
 }

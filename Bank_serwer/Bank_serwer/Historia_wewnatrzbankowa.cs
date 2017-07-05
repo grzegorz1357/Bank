@@ -23,8 +23,11 @@ namespace Bank_serwer
         public string tytul { get; set; }
         public string nazwa_odbiorcy { get; set; }
         public string adres_odbiorcy { get; set; }
+<<<<<<< HEAD
     
         public virtual Rachunki Rachunki { get; set; }
         public virtual Rachunki Rachunki1 { get; set; }
+=======
+>>>>>>> origin/master
     }
 }

@@ -17,13 +17,20 @@ namespace Bank_serwer
         public int id_transakcji { get; set; }
         public decimal kwota { get; set; }
         public System.DateTime data { get; set; }
+<<<<<<< HEAD
         public int kierunek_transakcji { get; set; }
+=======
+        public string kierunek_transakcji { get; set; }
+>>>>>>> origin/master
         public int id_rachunku { get; set; }
         public string nr_rachunku_obcego { get; set; }
         public int status { get; set; }
         public string tytul { get; set; }
+<<<<<<< HEAD
         public string nazwa_odbiorcy { get; set; }
         public string adres_odbiorcy { get; set; }
+=======
+>>>>>>> origin/master
     
         public virtual Rachunki Rachunki { get; set; }
         public virtual Historia_status Historia_status { get; set; }

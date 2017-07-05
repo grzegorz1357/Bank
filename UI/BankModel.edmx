@@ -4,6 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
+<<<<<<< HEAD
     <Schema Namespace="BankModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="BankModelStoreContainer">
     <EntitySet Name="Administratorzy" EntityType="BankModel.Store.Administratorzy" store:Type="Tables" Schema="dbo" />
@@ -367,6 +368,359 @@
     </ReferentialConstraint>
   </Association>
 </Schema></edmx:StorageModels>
+=======
+    <Schema Namespace="BankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administratorzy">
+          <Key>
+            <PropertyRef Name="id_administratora" />
+          </Key>
+          <Property Name="id_administratora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pesel" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="nr_dowodu" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="50" />
+          <Property Name="nr_domu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_mieszkania" Type="nchar" MaxLength="10" />
+          <Property Name="login" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="haslo" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="nr_telefonu" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Blokady">
+          <Key>
+            <PropertyRef Name="id_blokady" />
+          </Key>
+          <Property Name="id_blokady" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_administratora" Type="int" Nullable="false" />
+          <Property Name="id_rachunku" Type="int" Nullable="false" />
+          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="Informacja" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historia_miedzybankowa">
+          <Key>
+            <PropertyRef Name="id_transakcji" />
+          </Key>
+          <Property Name="id_transakcji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kwota" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="kierunek_transakcji" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_rachunku" Type="int" Nullable="false" />
+          <Property Name="nr_rachunku_obcego" Type="nchar" MaxLength="26" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="tytul" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historia_status">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historia_wewnatrzbankowa">
+          <Key>
+            <PropertyRef Name="id_transakcji" />
+          </Key>
+          <Property Name="id_transakcji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kwota" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="data" Type="datetime" Nullable="false" />
+          <Property Name="id_rachunku_nadawca" Type="int" Nullable="false" />
+          <Property Name="id_rachunku_odbiorca" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="tytul" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="id_klienta" />
+          </Key>
+          <Property Name="id_klienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pesel" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="nr_dowodu" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="50" />
+          <Property Name="nr_domu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="nr_mieszkania" Type="nchar" MaxLength="10" />
+          <Property Name="login" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="haslo" Type="nchar" MaxLength="64" Nullable="false" />
+          <Property Name="nr_telefonu" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="60" />
+          <Property Name="data_ostatniego_logowania" Type="datetime" />
+          <Property Name="data_ostatniego_blednego_logowania" Type="datetime" />
+          <Property Name="login_blokada" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Odbiorcy_zdefiniowani">
+          <Key>
+            <PropertyRef Name="id_odbiorcy_zdefiniowani" />
+          </Key>
+          <Property Name="id_odbiorcy_zdefiniowani" Type="int" Nullable="false" />
+          <Property Name="id_wlasciciela" Type="int" Nullable="false" />
+          <Property Name="nr_rachunku" Type="nchar" MaxLength="26" Nullable="false" />
+          <Property Name="nazwa" Type="nchar" MaxLength="256" Nullable="false" />
+          <Property Name="adres" Type="nchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Przelew_cykliczny">
+          <Key>
+            <PropertyRef Name="id_przelewu_cyklicznego" />
+          </Key>
+          <Property Name="id_przelewu_cyklicznego" Type="int" Nullable="false" />
+          <Property Name="id_rachunku_nadawcy" Type="int" Nullable="false" />
+          <Property Name="nr_rachunku_odbiorcy" Type="int" Nullable="false" />
+          <Property Name="kwota" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="tytuł" Type="nchar" MaxLength="256" Nullable="false" />
+          <Property Name="data_pierwszego_wykonania" Type="date" Nullable="false" />
+          <Property Name="Czestotliwosc_dni" Type="int" Nullable="false" />
+          <Property Name="data_ostatniego_wykonania" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rachunki">
+          <Key>
+            <PropertyRef Name="id_rachunku" />
+          </Key>
+          <Property Name="id_rachunku" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_klienta" Type="int" Nullable="false" />
+          <Property Name="nr_rachunku" Type="nchar" MaxLength="26" Nullable="false" />
+          <Property Name="rodzaj_rachunku" Type="int" Nullable="false" />
+          <Property Name="dostepne_srodki" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="blokada" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rachunki_rodzaj">
+          <Key>
+            <PropertyRef Name="id_rodzaj" />
+          </Key>
+          <Property Name="id_rodzaj" Type="int" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view '102.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Blokady_Administratorzy">
+          <End Role="Administratorzy" Type="Self.Administratorzy" Multiplicity="1" />
+          <End Role="Blokady" Type="Self.Blokady" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administratorzy">
+              <PropertyRef Name="id_administratora" />
+            </Principal>
+            <Dependent Role="Blokady">
+              <PropertyRef Name="id_administratora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blokady_Rachunki">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="1" />
+          <End Role="Blokady" Type="Self.Blokady" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="id_rachunku" />
+            </Principal>
+            <Dependent Role="Blokady">
+              <PropertyRef Name="id_rachunku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historia_miedzybankowa_Rachunki">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="1" />
+          <End Role="Historia_miedzybankowa" Type="Self.Historia_miedzybankowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="id_rachunku" />
+            </Principal>
+            <Dependent Role="Historia_miedzybankowa">
+              <PropertyRef Name="id_rachunku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historia_miedzybankowa_Status">
+          <End Role="Historia_status" Type="Self.Historia_status" Multiplicity="1" />
+          <End Role="Historia_miedzybankowa" Type="Self.Historia_miedzybankowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Historia_status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Historia_miedzybankowa">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historia_wewnatrzbankowa_Rachunki_1">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="1" />
+          <End Role="Historia_wewnatrzbankowa" Type="Self.Historia_wewnatrzbankowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="id_rachunku" />
+            </Principal>
+            <Dependent Role="Historia_wewnatrzbankowa">
+              <PropertyRef Name="id_rachunku_nadawca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historia_wewnatrzbankowa_Rachunki_2">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="1" />
+          <End Role="Historia_wewnatrzbankowa" Type="Self.Historia_wewnatrzbankowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="id_rachunku" />
+            </Principal>
+            <Dependent Role="Historia_wewnatrzbankowa">
+              <PropertyRef Name="id_rachunku_odbiorca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Historia_wewnatrzbankowa_Status">
+          <End Role="Historia_status" Type="Self.Historia_status" Multiplicity="1" />
+          <End Role="Historia_wewnatrzbankowa" Type="Self.Historia_wewnatrzbankowa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Historia_status">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="Historia_wewnatrzbankowa">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Odbiorcy_zdefiniowani_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Odbiorcy_zdefiniowani" Type="Self.Odbiorcy_zdefiniowani" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="id_klienta" />
+            </Principal>
+            <Dependent Role="Odbiorcy_zdefiniowani">
+              <PropertyRef Name="id_wlasciciela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Przelew_cykliczny_Rachunki">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="1" />
+          <End Role="Przelew_cykliczny" Type="Self.Przelew_cykliczny" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="id_rachunku" />
+            </Principal>
+            <Dependent Role="Przelew_cykliczny">
+              <PropertyRef Name="id_rachunku_nadawcy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rachunki_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="id_klienta" />
+            </Principal>
+            <Dependent Role="Rachunki">
+              <PropertyRef Name="id_klienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rachunki_Rodzaj">
+          <End Role="Rachunki_rodzaj" Type="Self.Rachunki_rodzaj" Multiplicity="1" />
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki_rodzaj">
+              <PropertyRef Name="id_rodzaj" />
+            </Principal>
+            <Dependent Role="Rachunki">
+              <PropertyRef Name="rodzaj_rachunku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BankModelStoreContainer">
+          <EntitySet Name="Administratorzy" EntityType="Self.Administratorzy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blokady" EntityType="Self.Blokady" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historia_miedzybankowa" EntityType="Self.Historia_miedzybankowa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historia_status" EntityType="Self.Historia_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historia_wewnatrzbankowa" EntityType="Self.Historia_wewnatrzbankowa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Odbiorcy_zdefiniowani" EntityType="Self.Odbiorcy_zdefiniowani" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Przelew_cykliczny" EntityType="Self.Przelew_cykliczny" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rachunki" EntityType="Self.Rachunki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rachunki_rodzaj" EntityType="Self.Rachunki_rodzaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Blokady_Administratorzy" Association="Self.FK_Blokady_Administratorzy">
+            <End Role="Administratorzy" EntitySet="Administratorzy" />
+            <End Role="Blokady" EntitySet="Blokady" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blokady_Rachunki" Association="Self.FK_Blokady_Rachunki">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="Blokady" EntitySet="Blokady" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historia_miedzybankowa_Rachunki" Association="Self.FK_Historia_miedzybankowa_Rachunki">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="Historia_miedzybankowa" EntitySet="Historia_miedzybankowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historia_miedzybankowa_Status" Association="Self.FK_Historia_miedzybankowa_Status">
+            <End Role="Historia_status" EntitySet="Historia_status" />
+            <End Role="Historia_miedzybankowa" EntitySet="Historia_miedzybankowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historia_wewnatrzbankowa_Rachunki_1" Association="Self.FK_Historia_wewnatrzbankowa_Rachunki_1">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="Historia_wewnatrzbankowa" EntitySet="Historia_wewnatrzbankowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historia_wewnatrzbankowa_Rachunki_2" Association="Self.FK_Historia_wewnatrzbankowa_Rachunki_2">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="Historia_wewnatrzbankowa" EntitySet="Historia_wewnatrzbankowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Historia_wewnatrzbankowa_Status" Association="Self.FK_Historia_wewnatrzbankowa_Status">
+            <End Role="Historia_status" EntitySet="Historia_status" />
+            <End Role="Historia_wewnatrzbankowa" EntitySet="Historia_wewnatrzbankowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Odbiorcy_zdefiniowani_Klienci" Association="Self.FK_Odbiorcy_zdefiniowani_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Odbiorcy_zdefiniowani" EntitySet="Odbiorcy_zdefiniowani" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Przelew_cykliczny_Rachunki" Association="Self.FK_Przelew_cykliczny_Rachunki">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="Przelew_cykliczny" EntitySet="Przelew_cykliczny" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rachunki_Klienci" Association="Self.FK_Rachunki_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Rachunki" EntitySet="Rachunki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rachunki_Rodzaj" Association="Self.FK_Rachunki_Rodzaj">
+            <End Role="Rachunki_rodzaj" EntitySet="Rachunki_rodzaj" />
+            <End Role="Rachunki" EntitySet="Rachunki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+>>>>>>> origin/master
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -717,8 +1071,11 @@
             <End Role="Rachunki" EntitySet="Rachunki" />
           </AssociationSet>
           <EntitySet Name="database_firewall_rules" EntityType="BankModel.database_firewall_rules" />
+<<<<<<< HEAD
           <EntitySet Name="Rachunki_obce" EntityType="BankModel.Rachunki_obce" />
           <EntitySet Name="Banki_numery" EntityType="BankModel.Banki_numery" />
+=======
+>>>>>>> origin/master
         </EntityContainer>
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -736,6 +1093,7 @@
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+<<<<<<< HEAD
         <EntityType Name="Rachunki_obce">
           <Key>
             <PropertyRef Name="id_rachunku" />
@@ -753,10 +1111,13 @@
           <Property Name="numer" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
           <Property Name="nazwa_banku" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+=======
+>>>>>>> origin/master
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
+<<<<<<< HEAD
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="BankModelStoreContainer" CdmEntityContainer="Entities1">
     <EntitySetMapping Name="Administratorzy">
@@ -937,6 +1298,168 @@
     </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
+=======
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BankModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="Administratorzy">
+            <EntityTypeMapping TypeName="BankModel.Administratorzy">
+              <MappingFragment StoreEntitySet="Administratorzy">
+                <ScalarProperty Name="id_administratora" ColumnName="id_administratora" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="nr_dowodu" ColumnName="nr_dowodu" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+                <ScalarProperty Name="nr_mieszkania" ColumnName="nr_mieszkania" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+                <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blokady">
+            <EntityTypeMapping TypeName="BankModel.Blokady">
+              <MappingFragment StoreEntitySet="Blokady">
+                <ScalarProperty Name="id_blokady" ColumnName="id_blokady" />
+                <ScalarProperty Name="id_administratora" ColumnName="id_administratora" />
+                <ScalarProperty Name="id_rachunku" ColumnName="id_rachunku" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="Informacja" ColumnName="Informacja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historia_miedzybankowa">
+            <EntityTypeMapping TypeName="BankModel.Historia_miedzybankowa">
+              <MappingFragment StoreEntitySet="Historia_miedzybankowa">
+                <ScalarProperty Name="id_transakcji" ColumnName="id_transakcji" />
+                <ScalarProperty Name="kwota" ColumnName="kwota" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="kierunek_transakcji" ColumnName="kierunek_transakcji" />
+                <ScalarProperty Name="id_rachunku" ColumnName="id_rachunku" />
+                <ScalarProperty Name="nr_rachunku_obcego" ColumnName="nr_rachunku_obcego" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historia_status">
+            <EntityTypeMapping TypeName="BankModel.Historia_status">
+              <MappingFragment StoreEntitySet="Historia_status">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historia_wewnatrzbankowa">
+            <EntityTypeMapping TypeName="BankModel.Historia_wewnatrzbankowa">
+              <MappingFragment StoreEntitySet="Historia_wewnatrzbankowa">
+                <ScalarProperty Name="id_transakcji" ColumnName="id_transakcji" />
+                <ScalarProperty Name="kwota" ColumnName="kwota" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="id_rachunku_nadawca" ColumnName="id_rachunku_nadawca" />
+                <ScalarProperty Name="id_rachunku_odbiorca" ColumnName="id_rachunku_odbiorca" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="BankModel.Klienci">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="login_blokada" ColumnName="login_blokada" />
+                <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="nr_dowodu" ColumnName="nr_dowodu" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="nr_domu" ColumnName="nr_domu" />
+                <ScalarProperty Name="nr_mieszkania" ColumnName="nr_mieszkania" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+                <ScalarProperty Name="nr_telefonu" ColumnName="nr_telefonu" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="data_ostatniego_logowania" ColumnName="data_ostatniego_logowania" />
+                <ScalarProperty Name="data_ostatniego_blednego_logowania" ColumnName="data_ostatniego_blednego_logowania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Odbiorcy_zdefiniowani">
+            <EntityTypeMapping TypeName="BankModel.Odbiorcy_zdefiniowani">
+              <MappingFragment StoreEntitySet="Odbiorcy_zdefiniowani">
+                <ScalarProperty Name="id_odbiorcy_zdefiniowani" ColumnName="id_odbiorcy_zdefiniowani" />
+                <ScalarProperty Name="id_wlasciciela" ColumnName="id_wlasciciela" />
+                <ScalarProperty Name="nr_rachunku" ColumnName="nr_rachunku" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Przelew_cykliczny">
+            <EntityTypeMapping TypeName="BankModel.Przelew_cykliczny">
+              <MappingFragment StoreEntitySet="Przelew_cykliczny">
+                <ScalarProperty Name="id_przelewu_cyklicznego" ColumnName="id_przelewu_cyklicznego" />
+                <ScalarProperty Name="id_rachunku_nadawcy" ColumnName="id_rachunku_nadawcy" />
+                <ScalarProperty Name="nr_rachunku_odbiorcy" ColumnName="nr_rachunku_odbiorcy" />
+                <ScalarProperty Name="kwota" ColumnName="kwota" />
+                <ScalarProperty Name="tytuł" ColumnName="tytuł" />
+                <ScalarProperty Name="data_pierwszego_wykonania" ColumnName="data_pierwszego_wykonania" />
+                <ScalarProperty Name="Czestotliwosc_dni" ColumnName="Czestotliwosc_dni" />
+                <ScalarProperty Name="data_ostatniego_wykonania" ColumnName="data_ostatniego_wykonania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rachunki">
+            <EntityTypeMapping TypeName="BankModel.Rachunki">
+              <MappingFragment StoreEntitySet="Rachunki">
+                <ScalarProperty Name="id_rachunku" ColumnName="id_rachunku" />
+                <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+                <ScalarProperty Name="nr_rachunku" ColumnName="nr_rachunku" />
+                <ScalarProperty Name="rodzaj_rachunku" ColumnName="rodzaj_rachunku" />
+                <ScalarProperty Name="dostepne_srodki" ColumnName="dostepne_srodki" />
+                <ScalarProperty Name="blokada" ColumnName="blokada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rachunki_rodzaj">
+            <EntityTypeMapping TypeName="BankModel.Rachunki_rodzaj">
+              <MappingFragment StoreEntitySet="Rachunki_rodzaj">
+                <ScalarProperty Name="id_rodzaj" ColumnName="id_rodzaj" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BankModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="BankModel.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+>>>>>>> origin/master
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">

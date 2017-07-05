@@ -36,7 +36,10 @@ namespace Bank_serwer
         public virtual DbSet<Rachunki> Rachunki { get; set; }
         public virtual DbSet<Rachunki_rodzaj> Rachunki_rodzaj { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+<<<<<<< HEAD
         public virtual DbSet<Rachunki_obce> Rachunki_obce { get; set; }
         public virtual DbSet<Banki_numery> Banki_numery { get; set; }
+=======
+>>>>>>> origin/master
     }
 }

@@ -20,8 +20,11 @@ namespace Bank_serwer
             this.Blokady = new HashSet<Blokady>();
             this.Historia_miedzybankowa = new HashSet<Historia_miedzybankowa>();
             this.Przelew_cykliczny = new HashSet<Przelew_cykliczny>();
+<<<<<<< HEAD
             this.Historia_wewnatrzbankowa = new HashSet<Historia_wewnatrzbankowa>();
             this.Historia_wewnatrzbankowa1 = new HashSet<Historia_wewnatrzbankowa>();
+=======
+>>>>>>> origin/master
         }
     
         public int id_rachunku { get; set; }
@@ -39,9 +42,12 @@ namespace Bank_serwer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przelew_cykliczny> Przelew_cykliczny { get; set; }
         public virtual Rachunki_rodzaj Rachunki_rodzaj { get; set; }
+<<<<<<< HEAD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Historia_wewnatrzbankowa> Historia_wewnatrzbankowa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Historia_wewnatrzbankowa> Historia_wewnatrzbankowa1 { get; set; }
+=======
+>>>>>>> origin/master
     }
 }

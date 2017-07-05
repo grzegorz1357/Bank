@@ -11,7 +11,10 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
+<<<<<<< HEAD
 using System.Text.RegularExpressions;
+=======
+>>>>>>> origin/master
 
 namespace Bank_serwer
 {
@@ -22,8 +25,12 @@ namespace Bank_serwer
         public decimal kwota;
         public DateTime data;
         public int id_rachunku_nadawca;
+<<<<<<< HEAD
         //public int id_rachunku_odbiorca;
         public String numer_odbiorcy;
+=======
+        public int id_rachunku_odbiorca;
+>>>>>>> origin/master
         public int status;
         public String tytul;
         public String nazwa_odbiorcy;
@@ -31,14 +38,22 @@ namespace Bank_serwer
 
         public Transakcja_Lista() { }
 
+<<<<<<< HEAD
         public Transakcja_Lista(decimal kwota, DateTime data, int id_rachunku_nadawca, String numer_odbiorcy, int status, String tytul, String nazwa_odbiorcy, String adres_odbiorcy)
+=======
+        public Transakcja_Lista(decimal kwota, DateTime data, int id_rachunku_nadawca, int id_rachunku_odbiorca, int status, String tytul, String nazwa_odbiorcy, String adres_odbiorcy)
+>>>>>>> origin/master
         {
             //this.id_transakcji = id_transakcji;
             this.kwota = kwota;
             this.data = data;
             this.id_rachunku_nadawca = id_rachunku_nadawca;
+<<<<<<< HEAD
             //this.id_rachunku_odbiorca = id_rachunku_odbiorca;
             this.numer_odbiorcy = numer_odbiorcy;
+=======
+            this.id_rachunku_odbiorca = id_rachunku_odbiorca;
+>>>>>>> origin/master
             this.status = status;
             this.tytul = tytul;
             this.nazwa_odbiorcy = nazwa_odbiorcy;
@@ -48,7 +63,10 @@ namespace Bank_serwer
 
     class Program
     {
+<<<<<<< HEAD
         int istnieje = 0;
+=======
+>>>>>>> origin/master
         static IPAddress lokalne = IPAddress.Parse("127.0.0.1");
         private TcpClient clientserv = new TcpClient();
         private static TcpListener server;
@@ -79,6 +97,7 @@ namespace Bank_serwer
 
         private void Dodaj_z_listy_do_bazy( Queue<Transakcja_Lista> kolejka)
         {
+<<<<<<< HEAD
             String pom2="";
             int id_rachunku2=0;
             Entities _repository = new Entities();
@@ -240,17 +259,59 @@ namespace Bank_serwer
                     }
 
                 }
+=======
+            Entities _repository = new Entities();
+            Historia_wewnatrzbankowa add = new Historia_wewnatrzbankowa();
+            foreach (Transakcja_Lista t in kolejka)
+            {
+                add.kwota = t.kwota;
+                add.id_rachunku_nadawca = t.id_rachunku_nadawca;
+                add.id_rachunku_odbiorca = t.id_rachunku_odbiorca;
+                add.tytul = t.tytul;
+                //add.nazwa_odbiorcy = t.nazwa_odbiorcy;
+                //add.adres_odbiorcy = t.adres_odbiorcy;
+                add.data = t.data;
+                add.status = 2;
+                Console.WriteLine(add.kwota + " " + add.id_rachunku_nadawca + " " + add.id_rachunku_odbiorca +
+                    " " + add.tytul + " " + add.nazwa_odbiorcy + " " + add.adres_odbiorcy + " " + add.data + " " + add.status);
+                try
+                {
+                    _repository.Historia_wewnatrzbankowa.Add(add);
+                    _repository.SaveChanges();
+                    Console.WriteLine("Transakcje zostały dodane do bazy");
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                {
+                    Exception raise = dbEx;
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("{0}:{1}",
+                                validationErrors.Entry.Entity.ToString(),
+                                validationError.ErrorMessage);
+                            raise = new InvalidOperationException(message, raise);
+                        }
+                    }
+                   throw raise;
+                }
+
+>>>>>>> origin/master
             }
         }
 
         private void Odbieranie()
         {
+<<<<<<< HEAD
            
+=======
+>>>>>>> origin/master
             Transakcja_Lista tl;
             Console.WriteLine("Oczekiwanie na zlecenia transkacji...");
             //Socket client = server.AcceptSocket();
             while (true)
             {
+<<<<<<< HEAD
 
                 if (clientserv.Connected == true && clientserv != null)
                 {
@@ -274,10 +335,30 @@ namespace Bank_serwer
                 }
 
 
+=======
+                if (clientserv.Connected)
+                {
+                    netStream = clientserv.GetStream();
+                    var xmlSerializer = new XmlSerializer(typeof(Transakcja_Lista));
+
+                    tl = (Transakcja_Lista)xmlSerializer.Deserialize(netStream);
+
+                    Console.WriteLine("Odebrano: " + tl.id_rachunku_nadawca + " | " + tl.id_rachunku_odbiorca + " | " + tl.kwota
+                                       + " | " + tl.tytul + " | " + tl.nazwa_odbiorcy + " | " + tl.adres_odbiorcy + " | " + tl.data + " | " + tl.status);
+                                                           
+                    Console.WriteLine();
+
+                    Wstaw_na_liste(tl, zlecenia);
+                    Dodaj_z_listy_do_bazy(zlecenia);
+                    netStream.Close();
+                    tl = null;
+                }
+>>>>>>> origin/master
             }
             
         }
 
+<<<<<<< HEAD
         private volatile bool stopThread = false;
         private Thread workThread;
 
@@ -320,6 +401,19 @@ namespace Bank_serwer
             //Stop_Listening();
             
             
+=======
+        static void Main(string[] args)
+        {
+            
+            DateTime data_teraz = DateTime.Now;       
+            Program p1 = new Program();
+            
+            Thread Nasluchuj = new Thread(() => p1.Start_Listening(5000));
+            Nasluchuj.Start();
+            Thread Odbierz = new Thread(p1.Odbieranie);
+            Odbierz.Start();
+            //Stop_Listening();
+>>>>>>> origin/master
 
             Console.ReadLine();
         }

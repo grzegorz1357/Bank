@@ -30,7 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
             this.label6 = new System.Windows.Forms.Label();
+=======
+<<<<<<< HEAD
+            this.label6 = new System.Windows.Forms.Label();
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
             this.cb_hidden = new System.Windows.Forms.ComboBox();
             this.lb_user = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,13 +48,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvHistoria = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+=======
+>>>>>>> origin/master
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nadawca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Odbiorca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kwota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+<<<<<<< HEAD
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+<<<<<<< HEAD
+=======
+            this.label6 = new System.Windows.Forms.Label();
+>>>>>>> origin/master
+>>>>>>> origin/master
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +90,10 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
             // label6
             // 
             this.label6.AutoSize = true;
@@ -85,6 +106,11 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "HISTORIA OSTATNICH TRANSAKCJI";
             // 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
             // cb_hidden
             // 
             this.cb_hidden.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -95,7 +121,14 @@
             this.cb_hidden.Size = new System.Drawing.Size(121, 21);
             this.cb_hidden.TabIndex = 20;
             this.cb_hidden.Visible = false;
+<<<<<<< HEAD
             this.cb_hidden.SelectedIndexChanged += new System.EventHandler(this.cb_hidden_SelectedIndexChanged);
+=======
+<<<<<<< HEAD
+            this.cb_hidden.SelectedIndexChanged += new System.EventHandler(this.cb_hidden_SelectedIndexChanged);
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
             // 
             // lb_user
             // 
@@ -206,16 +239,27 @@
             this.Nadawca,
             this.Odbiorca,
             this.Opis,
+<<<<<<< HEAD
             this.Kwota,
             this.Status});
+=======
+            this.Kwota});
+>>>>>>> origin/master
             this.dgvHistoria.Location = new System.Drawing.Point(21, 143);
             this.dgvHistoria.Margin = new System.Windows.Forms.Padding(2);
             this.dgvHistoria.Name = "dgvHistoria";
             this.dgvHistoria.RowTemplate.Height = 24;
             this.dgvHistoria.Size = new System.Drawing.Size(585, 324);
             this.dgvHistoria.TabIndex = 1;
+<<<<<<< HEAD
             this.dgvHistoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistoria_CellContentClick);
             this.dgvHistoria.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvHistoria_RowsAdded);
+=======
+<<<<<<< HEAD
+            this.dgvHistoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistoria_CellContentClick);
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
             // 
             // Data
             // 
@@ -227,6 +271,7 @@
             // 
             // Nadawca
             // 
+<<<<<<< HEAD
             this.Nadawca.DataPropertyName = "Nadawca";
             this.Nadawca.FillWeight = 180F;
             this.Nadawca.HeaderText = "Nadawca";
@@ -240,6 +285,13 @@
             this.Odbiorca.HeaderText = "Odbiorca";
             this.Odbiorca.Name = "Odbiorca";
             this.Odbiorca.Width = 180;
+=======
+            this.OdNad.DataPropertyName = "OdNad";
+            this.OdNad.HeaderText = "Odbiorca/Nadawca";
+            this.OdNad.Name = "OdNad";
+            this.OdNad.ReadOnly = true;
+            this.OdNad.Width = 200;
+>>>>>>> origin/master
             // 
             // Opis
             // 
@@ -256,13 +308,30 @@
             this.Kwota.Name = "Kwota";
             this.Kwota.ReadOnly = true;
             // 
+<<<<<<< HEAD
             // Status
             // 
             this.Status.DataPropertyName = "Status";
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.Width = 90;
+=======
+<<<<<<< HEAD
+=======
+            // label6
             // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(174, 121);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(284, 20);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "HISTORIA OSTATNICH TRANSAKCJI";
+>>>>>>> origin/master
+            // 
+>>>>>>> origin/master
             // SG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +360,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lb_user;
         private System.Windows.Forms.Label label5;
+<<<<<<< HEAD
         private System.Windows.Forms.ComboBox cb_hidden;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer timer1;
@@ -300,5 +370,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kwota;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+=======
+        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OdNad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kwota;
+        private System.Windows.Forms.ComboBox cb_hidden;
+        private System.Windows.Forms.Label label6;
+>>>>>>> origin/master
     }
 }

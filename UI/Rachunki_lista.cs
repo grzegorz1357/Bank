@@ -13,7 +13,16 @@ namespace UI
     public partial class Rachunki_lista : UserControl
     {
         public int ID = Form1.set_id();
+<<<<<<< HEAD
        
+=======
+<<<<<<< HEAD
+       
+=======
+
+        
+>>>>>>> origin/master
+>>>>>>> origin/master
         private static Rachunki_lista _instance;
         public static Rachunki_lista Instance
         {
@@ -30,7 +39,11 @@ namespace UI
             rachunki();
             srodki();
             dgv_rachunki_Load();
+<<<<<<< HEAD
             dgv_rachunek.Columns[4].DefaultCellStyle.Format = "0.00##";
+=======
+           
+>>>>>>> origin/master
         }
 
         // TWORZENIE LISTY RACHUNKOW DLA DANEGO KLIENTA
@@ -111,6 +124,7 @@ namespace UI
             {
 
                 var historia = (from h in wh.Historia_wewnatrzbankowa
+<<<<<<< HEAD
                                 join r in wh.Rachunki on h.id_rachunku_nadawca equals r.id_rachunku
                                 join rr in wh.Rachunki on h.id_rachunku_odbiorca equals rr.id_rachunku
                                 join k in wh.Klienci on r.id_klienta equals k.id_klienta
@@ -149,6 +163,21 @@ namespace UI
                 historia.Reverse();
                 dgv_rachunek.DataSource = historia.ToList();
 
+=======
+                                from r in wh.Rachunki.Where(s => s.id_rachunku == h.id_rachunku_nadawca || s.id_rachunku == h.id_rachunku_odbiorca)
+                                join k in wh.Klienci on r.id_klienta equals k.id_klienta
+                                where k.login == login && r.nr_rachunku == selected
+                                orderby h.data descending
+                                select new 
+                                {
+                                    Data = h.data,
+                                    OdNad = r.nr_rachunku,
+                                    Opis = h.tytul,
+                                    Kwota = h.kwota
+                                });
+               
+                dgv_rachunek.DataSource = historia.ToList();
+>>>>>>> origin/master
             }
         }
       

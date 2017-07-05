@@ -198,6 +198,7 @@ namespace UI
             ukryj_dodaj();
         }
 
+<<<<<<< HEAD
         static bool sprawdz(string numer)
         {
             char[] temp = numer.ToCharArray();
@@ -274,6 +275,51 @@ namespace UI
                 }
             }
 
+=======
+        //WYSYŁANIE DANYCH O PRZELEWIE CYKLICZNYM DO SERWERA
+        private void bt_wyslij_Click(object sender, EventArgs e)
+        {
+            Entities1 _repository = new Entities1();
+            Przelew_cykliczny add = new Przelew_cykliczny();
+
+            for(int i=0;i< datad.Rows.Count; i++)
+            if (cb_ZRachunku.SelectedValue.ToString()== datad.Rows[i][0].ToString())
+            {
+                    int id = Int32.Parse(datad.Rows[i][7].ToString());
+                    add.id_rachunku_nadawcy = id;
+            }
+           
+
+            int odbiorca = Int32.Parse(tb_NaRachunek.Text.ToString());
+            add.nr_rachunku_odbiorcy = odbiorca;
+
+            var kwota = Convert.ToDecimal(tb_Kwota.Text.ToString());
+            add.kwota = kwota;
+
+            add.tytuł = tb_Tytul.Text.ToString();
+
+            int czestotliwosc = Int32.Parse(tb_Czestotliwosc.Text.ToString());
+            add.Czestotliwosc_dni = czestotliwosc;
+
+            DateTime Data1 = DateTime.Parse(tb_dpw.Text.ToString());
+            add.data_pierwszego_wykonania = Data1;
+
+            DateTime Data2 = DateTime.Parse(tb_dow.Text.ToString());
+            add.data_ostatniego_wykonania = Data2;
+
+            try
+            {
+                _repository.Przelew_cykliczny.Add(add);
+                _repository.SaveChanges();
+                MessageBox.Show("Pomyślnie dodano przelew cykliczny");
+                ukryj_dodaj();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+>>>>>>> origin/master
         }
     }
 }

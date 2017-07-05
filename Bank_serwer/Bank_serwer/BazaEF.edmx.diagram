@@ -24,10 +24,13 @@
         <AssociationConnector Association="Model.FK_Rachunki_Klienci" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Przelew_cykliczny_Rachunki" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Rachunki_Rodzaj" ManuallyRouted="false" />
+<<<<<<< HEAD
         <AssociationConnector Association="Model.FK_Historia_wewnatrzbankowa_Rachunki" />
         <AssociationConnector Association="Model.FK_Historia_wewnatrzbankowa_Rachunki2" />
         <EntityTypeShape EntityType="Model.Rachunki_obce" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="Model.Banki_numery" Width="1.5" PointX="8.375" PointY="9.75" />
+=======
+>>>>>>> origin/master
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

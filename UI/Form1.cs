@@ -13,10 +13,13 @@ namespace UI
     public partial class Form1 : Form
     {
         public static int id = 0;
+<<<<<<< HEAD
         int secondsToWait = 600;
         int remainingSeconds;
         int elapsedSeconds;
         DateTime startTime;
+=======
+>>>>>>> origin/master
 
         public Form1()
         {
@@ -45,6 +48,13 @@ namespace UI
         {
             return id;
         }
+<<<<<<< HEAD
+=======
+        public static int set_id()
+        {
+            return id;
+        }
+>>>>>>> origin/master
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

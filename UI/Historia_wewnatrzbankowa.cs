@@ -21,8 +21,11 @@ namespace UI
         public int id_rachunku_odbiorca { get; set; }
         public int status { get; set; }
         public string tytul { get; set; }
+<<<<<<< HEAD
         public string nazwa_odbiorcy { get; set; }
         public string adres_odbiorcy { get; set; }
+=======
+>>>>>>> origin/master
     
         public virtual Historia_status Historia_status { get; set; }
         public virtual Rachunki Rachunki { get; set; }
