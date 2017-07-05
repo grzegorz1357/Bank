@@ -12,12 +12,18 @@ namespace UI
 {
     public partial class Form1 : Form
     {
+        public static int id = 0;
+        int secondsToWait = 600;
+        int remainingSeconds;
+        int elapsedSeconds;
+        DateTime startTime;
 
         public Form1()
         {
             
             InitializeComponent();
-
+            id = UI.Logowanie.return_id();
+         
             if (!panel2.Controls.Contains(SG.Instance))
             {
                 panel2.Controls.Add(SG.Instance);
@@ -31,8 +37,14 @@ namespace UI
 
             }
 
+            timer1.Start();
+            startTime = DateTime.Now;
+            
         }
-
+        public static int set_id()
+        {
+            return id;
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -45,7 +57,8 @@ namespace UI
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-           
+            Resetuj_timer();
+
             if (!panel2.Controls.Contains(SG.Instance))
             {
                 panel2.Controls.Add(SG.Instance);
@@ -67,6 +80,7 @@ namespace UI
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             if (!panel2.Controls.Contains(Rachunki_lista.Instance))
             {
                 panel2.Controls.Add(Rachunki_lista.Instance);
@@ -83,6 +97,7 @@ namespace UI
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             if (!panel2.Controls.Contains(Ustawienia.Instance))
             {
                 panel2.Controls.Add(Ustawienia.Instance);
@@ -116,15 +131,18 @@ namespace UI
                 PanelAnimator2.ShowSync(panel1);
             
             }
+
+            Resetuj_timer();
         }
 
         private void logo_Click(object sender, EventArgs e)
         {
-
+            Resetuj_timer();
         }
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             if (!panel2.Controls.Contains(Transakcje.Instance))
             {
                 panel2.Controls.Add(Transakcje.Instance);
@@ -144,11 +162,13 @@ namespace UI
 
         private void bt_Wyloguj_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             Application.Exit();
         }
 
         private void bt_Lokaty_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             if (!panel2.Controls.Contains(Lokaty.Instance))
             {
                 panel2.Controls.Add(Lokaty.Instance);
@@ -163,6 +183,7 @@ namespace UI
 
         private void bt_Kredyty_Click(object sender, EventArgs e)
         {
+            Resetuj_timer();
             if (!panel2.Controls.Contains(Kredyty.Instance))
             {
                 panel2.Controls.Add(Kredyty.Instance);
@@ -174,5 +195,51 @@ namespace UI
                 Kredyty.Instance.BringToFront();
             }
         }
+
+        public void Resetuj_timer()
+        {
+            timer1.Stop();
+            startTime = DateTime.Now;
+            lb_logout.Text = "Automatyczne wylogowanie za: ";
+            czas2.Text = secondsToWait.ToString();
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           
+            elapsedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
+            remainingSeconds = secondsToWait - elapsedSeconds;
+
+            if (remainingSeconds <= 0)
+            {
+                timer1.Stop();
+                this.Close();
+                MessageBox.Show("Nastąpiło automatyczne wylogowanie.");
+                Application.Exit();
+            }
+
+            lb_logout.Text = "Automatyczne wylogowanie za: ";
+            czas2.Text = remainingSeconds.ToString();
+
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Resetuj_timer();
+        }
+
+        private void Heder_MouseClick(object sender, MouseEventArgs e)
+        {
+            Resetuj_timer();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Resetuj_timer();
+        }
+
     }
+
+
 }

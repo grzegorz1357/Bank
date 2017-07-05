@@ -17,10 +17,13 @@ namespace UI
         public int id_transakcji { get; set; }
         public decimal kwota { get; set; }
         public System.DateTime data { get; set; }
-        public string kierunek_transakcji { get; set; }
+        public int kierunek_transakcji { get; set; }
         public int id_rachunku { get; set; }
         public string nr_rachunku_obcego { get; set; }
         public int status { get; set; }
+        public string tytul { get; set; }
+        public string nazwa_odbiorcy { get; set; }
+        public string adres_odbiorcy { get; set; }
     
         public virtual Rachunki Rachunki { get; set; }
         public virtual Historia_status Historia_status { get; set; }

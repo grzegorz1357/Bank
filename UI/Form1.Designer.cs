@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation8 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation9 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation7 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.czas2 = new System.Windows.Forms.Label();
+            this.lb_logout = new System.Windows.Forms.Label();
             this.bt_Kredyty = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bt_Ustawienia = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bt_Wyloguj = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -53,6 +55,7 @@
             this.LogoAnimator = new BunifuAnimatorNS.Animator(this.components);
             this.PanelAnimator = new BunifuAnimatorNS.Animator(this.components);
             this.PanelAnimator2 = new BunifuAnimatorNS.Animator(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -68,6 +71,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.czas2);
+            this.panel1.Controls.Add(this.lb_logout);
             this.panel1.Controls.Add(this.bt_Kredyty);
             this.panel1.Controls.Add(this.bt_Ustawienia);
             this.panel1.Controls.Add(this.bt_Wyloguj);
@@ -86,6 +91,33 @@
             this.panel1.Size = new System.Drawing.Size(200, 479);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
+            // czas2
+            // 
+            this.czas2.AutoSize = true;
+            this.PanelAnimator2.SetDecoration(this.czas2, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.czas2, BunifuAnimatorNS.DecorationType.None);
+            this.LogoAnimator.SetDecoration(this.czas2, BunifuAnimatorNS.DecorationType.None);
+            this.czas2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.czas2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.czas2.Location = new System.Drawing.Point(162, 457);
+            this.czas2.Name = "czas2";
+            this.czas2.Size = new System.Drawing.Size(0, 13);
+            this.czas2.TabIndex = 10;
+            // 
+            // lb_logout
+            // 
+            this.lb_logout.AutoSize = true;
+            this.PanelAnimator2.SetDecoration(this.lb_logout, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.lb_logout, BunifuAnimatorNS.DecorationType.None);
+            this.LogoAnimator.SetDecoration(this.lb_logout, BunifuAnimatorNS.DecorationType.None);
+            this.lb_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lb_logout.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lb_logout.Location = new System.Drawing.Point(3, 457);
+            this.lb_logout.Name = "lb_logout";
+            this.lb_logout.Size = new System.Drawing.Size(0, 13);
+            this.lb_logout.TabIndex = 9;
             // 
             // bt_Kredyty
             // 
@@ -106,7 +138,7 @@
             this.bt_Kredyty.IconZoom = 90D;
             this.bt_Kredyty.IsTab = true;
             this.bt_Kredyty.Location = new System.Drawing.Point(-1, 287);
-            this.bt_Kredyty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Kredyty.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Kredyty.Name = "bt_Kredyty";
             this.bt_Kredyty.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Kredyty.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -115,7 +147,7 @@
             this.bt_Kredyty.Size = new System.Drawing.Size(202, 50);
             this.bt_Kredyty.TabIndex = 8;
             this.bt_Kredyty.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Kredyty.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Kredyty.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Kredyty.Click += new System.EventHandler(this.bt_Kredyty_Click);
             // 
             // bt_Ustawienia
@@ -137,7 +169,7 @@
             this.bt_Ustawienia.IconZoom = 90D;
             this.bt_Ustawienia.IsTab = true;
             this.bt_Ustawienia.Location = new System.Drawing.Point(-2, 343);
-            this.bt_Ustawienia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Ustawienia.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Ustawienia.Name = "bt_Ustawienia";
             this.bt_Ustawienia.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Ustawienia.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -146,7 +178,7 @@
             this.bt_Ustawienia.Size = new System.Drawing.Size(202, 50);
             this.bt_Ustawienia.TabIndex = 7;
             this.bt_Ustawienia.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Ustawienia.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Ustawienia.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Ustawienia.Click += new System.EventHandler(this.bunifuFlatButton6_Click);
             // 
             // bt_Wyloguj
@@ -167,8 +199,8 @@
             this.bt_Wyloguj.Iconimage_Selected = null;
             this.bt_Wyloguj.IconZoom = 90D;
             this.bt_Wyloguj.IsTab = true;
-            this.bt_Wyloguj.Location = new System.Drawing.Point(1, 428);
-            this.bt_Wyloguj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Wyloguj.Location = new System.Drawing.Point(1, 401);
+            this.bt_Wyloguj.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Wyloguj.Name = "bt_Wyloguj";
             this.bt_Wyloguj.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Wyloguj.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -177,7 +209,7 @@
             this.bt_Wyloguj.Size = new System.Drawing.Size(199, 50);
             this.bt_Wyloguj.TabIndex = 6;
             this.bt_Wyloguj.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Wyloguj.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Wyloguj.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Wyloguj.Click += new System.EventHandler(this.bt_Wyloguj_Click);
             // 
             // bt_Lokaty
@@ -199,7 +231,7 @@
             this.bt_Lokaty.IconZoom = 90D;
             this.bt_Lokaty.IsTab = true;
             this.bt_Lokaty.Location = new System.Drawing.Point(-3, 231);
-            this.bt_Lokaty.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Lokaty.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Lokaty.Name = "bt_Lokaty";
             this.bt_Lokaty.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Lokaty.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -208,7 +240,7 @@
             this.bt_Lokaty.Size = new System.Drawing.Size(203, 50);
             this.bt_Lokaty.TabIndex = 5;
             this.bt_Lokaty.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Lokaty.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Lokaty.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Lokaty.Click += new System.EventHandler(this.bt_Lokaty_Click);
             // 
             // bt_Rachunki
@@ -230,7 +262,7 @@
             this.bt_Rachunki.IconZoom = 90D;
             this.bt_Rachunki.IsTab = true;
             this.bt_Rachunki.Location = new System.Drawing.Point(-2, 175);
-            this.bt_Rachunki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Rachunki.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Rachunki.Name = "bt_Rachunki";
             this.bt_Rachunki.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Rachunki.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -239,7 +271,7 @@
             this.bt_Rachunki.Size = new System.Drawing.Size(202, 50);
             this.bt_Rachunki.TabIndex = 4;
             this.bt_Rachunki.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Rachunki.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Rachunki.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Rachunki.Click += new System.EventHandler(this.bunifuFlatButton3_Click);
             // 
             // bt_Transakcje
@@ -261,7 +293,7 @@
             this.bt_Transakcje.IconZoom = 90D;
             this.bt_Transakcje.IsTab = true;
             this.bt_Transakcje.Location = new System.Drawing.Point(0, 119);
-            this.bt_Transakcje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Transakcje.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Transakcje.Name = "bt_Transakcje";
             this.bt_Transakcje.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_Transakcje.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -270,7 +302,7 @@
             this.bt_Transakcje.Size = new System.Drawing.Size(201, 50);
             this.bt_Transakcje.TabIndex = 3;
             this.bt_Transakcje.Textcolor = System.Drawing.Color.Silver;
-            this.bt_Transakcje.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_Transakcje.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_Transakcje.Click += new System.EventHandler(this.bunifuFlatButton2_Click);
             // 
             // bt_SG
@@ -292,7 +324,7 @@
             this.bt_SG.IconZoom = 90D;
             this.bt_SG.IsTab = true;
             this.bt_SG.Location = new System.Drawing.Point(-4, 63);
-            this.bt_SG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SG.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SG.Name = "bt_SG";
             this.bt_SG.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bt_SG.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -301,7 +333,7 @@
             this.bt_SG.Size = new System.Drawing.Size(207, 50);
             this.bt_SG.TabIndex = 2;
             this.bt_SG.Textcolor = System.Drawing.Color.Silver;
-            this.bt_SG.TextFont = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bt_SG.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bt_SG.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // ButtonMenu
@@ -350,6 +382,7 @@
             this.Heder.Size = new System.Drawing.Size(826, 35);
             this.Heder.TabIndex = 1;
             this.Heder.Paint += new System.Windows.Forms.PaintEventHandler(this.Heder_Paint);
+            this.Heder.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Heder_MouseClick);
             // 
             // bunifuImageButton2
             // 
@@ -375,11 +408,11 @@
             this.PanelAnimator2.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.PanelAnimator.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.LogoAnimator.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 9);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(88, 21);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(83, 20);
             this.bunifuCustomLabel1.TabIndex = 2;
             this.bunifuCustomLabel1.Text = "AG - Bank";
             // 
@@ -401,69 +434,75 @@
             this.panel2.Size = new System.Drawing.Size(626, 479);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseClick);
             // 
             // LogoAnimator
             // 
             this.LogoAnimator.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.LogoAnimator.Cursor = null;
-            animation8.AnimateOnlyDifferences = true;
-            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
-            animation8.LeafCoeff = 0F;
-            animation8.MaxTime = 1F;
-            animation8.MinTime = 0F;
-            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
-            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
-            animation8.MosaicSize = 0;
-            animation8.Padding = new System.Windows.Forms.Padding(30);
-            animation8.RotateCoeff = 0.5F;
-            animation8.RotateLimit = 0.2F;
-            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
-            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
-            animation8.TimeCoeff = 0F;
-            animation8.TransparencyCoeff = 0F;
-            this.LogoAnimator.DefaultAnimation = animation8;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(30);
+            animation6.RotateCoeff = 0.5F;
+            animation6.RotateLimit = 0.2F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 0F;
+            animation6.TransparencyCoeff = 0F;
+            this.LogoAnimator.DefaultAnimation = animation6;
             // 
             // PanelAnimator
             // 
             this.PanelAnimator.AnimationType = BunifuAnimatorNS.AnimationType.HorizBlind;
             this.PanelAnimator.Cursor = null;
-            animation9.AnimateOnlyDifferences = true;
-            animation9.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.BlindCoeff")));
-            animation9.LeafCoeff = 0F;
-            animation9.MaxTime = 1F;
-            animation9.MinTime = 0F;
-            animation9.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicCoeff")));
-            animation9.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation9.MosaicShift")));
-            animation9.MosaicSize = 0;
-            animation9.Padding = new System.Windows.Forms.Padding(0);
-            animation9.RotateCoeff = 0F;
-            animation9.RotateLimit = 0F;
-            animation9.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.ScaleCoeff")));
-            animation9.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation9.SlideCoeff")));
-            animation9.TimeCoeff = 0F;
-            animation9.TransparencyCoeff = 0F;
-            this.PanelAnimator.DefaultAnimation = animation9;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 0F;
+            this.PanelAnimator.DefaultAnimation = animation5;
             // 
             // PanelAnimator2
             // 
             this.PanelAnimator2.AnimationType = BunifuAnimatorNS.AnimationType.Leaf;
             this.PanelAnimator2.Cursor = null;
-            animation7.AnimateOnlyDifferences = true;
-            animation7.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.BlindCoeff")));
-            animation7.LeafCoeff = 1F;
-            animation7.MaxTime = 1F;
-            animation7.MinTime = 0F;
-            animation7.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicCoeff")));
-            animation7.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicShift")));
-            animation7.MosaicSize = 0;
-            animation7.Padding = new System.Windows.Forms.Padding(0);
-            animation7.RotateCoeff = 0F;
-            animation7.RotateLimit = 0F;
-            animation7.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.ScaleCoeff")));
-            animation7.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.SlideCoeff")));
-            animation7.TimeCoeff = 0F;
-            animation7.TransparencyCoeff = 0F;
-            this.PanelAnimator2.DefaultAnimation = animation7;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 1F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.PanelAnimator2.DefaultAnimation = animation4;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -482,6 +521,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ButtonMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.Heder.ResumeLayout(false);
@@ -513,6 +553,9 @@
         private BunifuAnimatorNS.Animator PanelAnimator;
         private BunifuAnimatorNS.Animator LogoAnimator;
         private BunifuAnimatorNS.Animator PanelAnimator2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lb_logout;
+        private System.Windows.Forms.Label czas2;
     }
 }
 

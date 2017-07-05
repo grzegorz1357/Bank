@@ -13,10 +13,10 @@ namespace UI
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     
@@ -35,5 +35,9 @@ namespace UI
         public virtual DbSet<Przelew_cykliczny> Przelew_cykliczny { get; set; }
         public virtual DbSet<Rachunki> Rachunki { get; set; }
         public virtual DbSet<Rachunki_rodzaj> Rachunki_rodzaj { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Rachunki_obce> Rachunki_obce { get; set; }
+        public virtual DbSet<Banki_numery> Banki_numery { get; set; }
     }
 }

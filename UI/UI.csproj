@@ -60,6 +60,9 @@
     <Compile Include="Administratorzy.cs">
       <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Banki_numery.cs">
+      <DependentUpon>BankModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BankModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +79,9 @@
       <DependentUpon>BankModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Blokady.cs">
+      <DependentUpon>BankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database_firewall_rules.cs">
       <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -131,6 +137,9 @@
     <Compile Include="Rachunki_lista.Designer.cs">
       <DependentUpon>Rachunki_lista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rachunki_obce.cs">
+      <DependentUpon>BankModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Rachunki_rodzaj.cs">
       <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
@@ -139,6 +148,9 @@
     </Compile>
     <Compile Include="SG.Designer.cs">
       <DependentUpon>SG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>BankModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Transakcje.cs">
       <SubType>UserControl</SubType>
@@ -249,7 +261,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BankModel.Context.tt">
@@ -257,14 +274,12 @@
       <DependentUpon>BankModel.edmx</DependentUpon>
       <LastGenOutput>BankModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="BankModel.edmx.sql" />
     <Content Include="BankModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BankModel.edmx</DependentUpon>
       <LastGenOutput>BankModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
